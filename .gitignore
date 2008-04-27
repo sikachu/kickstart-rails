@@ -1,0 +1,6 @@
+/tmp
+/log/*.log
+/config/database.yml
+/vendor/rails
+/public/stylesheets/*.css
+/public/javascripts/all.js
