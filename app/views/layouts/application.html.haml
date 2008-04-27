@@ -1,0 +1,12 @@
+!!! strict
+%html
+  %head
+    %title= humanized_controller_action
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8' }
+    = stylesheet_link_tag 'default'
+    / = javascript_include_tag :defaults, :cache => true
+    
+  %body
+    %h1= humanized_controller_action
+    
+    = yield

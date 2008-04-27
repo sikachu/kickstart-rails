@@ -38,4 +38,13 @@ module ApplicationHelper
     text.blank? ? '' : RubyPants.new(text).to_html
   end
 
+  def humanized_controller_action
+    controller.controller_name.humanize + ' ' + controller.action_name.gsub('_', ' ')
+  end
+  
+  # override ActionView helper for HTML4
+  def tag(name, options = nil, open = false, escape = true)
+    super name, options, true, escape
+  end
+
 end
