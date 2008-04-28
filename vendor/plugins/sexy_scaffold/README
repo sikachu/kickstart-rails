@@ -1,0 +1,21 @@
+Sexy Scaffold
+============
+
+
+better than rspec_haml_scaffold
+- support for model values upon generation, creates fixtuers as well
+- new dependancy for make_resourceful
+
+better than make_resourcesful
+- creates scaffolded specs for controllers, models and views
+- uses sexy migrations for models
+
+notes
+when using script/destroy on nested controllers you must destroy the nest like
+
+ruby script/destroy rest_scaffold yoda/bob
+
+
+
+Copyright (c) 2008 [CitrusByte], released under the MIT license
+http://www.citrusbyte.com
