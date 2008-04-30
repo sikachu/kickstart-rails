@@ -1,0 +1,30 @@
+# vi:ft=ruby:
+Autotest.add_hook :initialize do |at|
+  
+  %w{ vendor/gems/ .git stories/ Rakefile Capfile README .autotest spec/spec.opts spec/rcov.opts }.each do |exception|
+    at.add_exception exception
+  end
+  
+
+  at.add_mapping(/spec\/defaults.rb/) do |f, _|
+    at.files_matching %r%^spec/(controllers|helpers|lib|models|views)/.*\.rb$%
+  end
+
+end
+
+class Autotest
+  def exceptions_non_greedy
+    unless defined? @exceptions then
+      if @exception_list.empty? then
+        @exceptions = nil
+      else
+        @exceptions = /^\.\/#{Regexp.union(*@exception_list)}/
+      end
+    end
+
+    @exceptions
+  end
+
+  alias :exceptions_original :exceptions
+  alias :exceptions :exceptions_non_greedy
+end
