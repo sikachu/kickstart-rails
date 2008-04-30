@@ -15,3 +15,23 @@ Spec::Runner.configure do |config|
   
   config.mock_with :mocha
 end
+
+module HTML
+  Node.class_eval do
+    def inner_text
+      children.map(&:inner_text).join('')
+    end
+  end
+  
+  Text.class_eval do
+    def inner_text
+      self.to_s
+    end
+  end
+
+  Tag.class_eval do
+    def inner_text
+      childless?? '' : super
+    end
+  end
+end
