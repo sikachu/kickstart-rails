@@ -1,23 +1,26 @@
 # vi:ft=ruby:
 Autotest.add_hook :initialize do |at|
   
+  # add these to ignore list
   %w{ vendor/gems/ .git stories/ Rakefile Capfile README .autotest spec/spec.opts spec/rcov.opts }.each do |exception|
     at.add_exception exception
   end
   
-
-  at.add_mapping(/spec\/defaults.rb/) do |f, _|
-    at.files_matching %r%^spec/(controllers|helpers|lib|models|views)/.*\.rb$%
-  end
-
 end
 
+# ugh, we have to monkeypatch Autotest ...
+# the regexp it generates for the exception list just matches too much
+# 
+# SOLUTION: wrap it up in another regexp that anchors the whole expression to
+# the beginning of the path
 class Autotest
   def exceptions_non_greedy
     unless defined? @exceptions then
       if @exception_list.empty? then
         @exceptions = nil
       else
+        # old (BAD):
+        # @exceptions = Regexp.union(*@exception_list)
         @exceptions = /^\.\/#{Regexp.union(*@exception_list)}/
       end
     end
