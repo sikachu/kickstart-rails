@@ -1,16 +1,13 @@
-# Kick-start your new Rails project with this blank-slate application
+# Useful Rails template that we're going to use for starting our applications
 
-    git clone --origin kickstart git://github.com/mislav/kickstart-rails.git project_name
+So in order to create a new project, we first check out the kickstart template:
 
-Example of what you could to after that:
+    git clone --o kickstart git@github.com:code/kickstart-rails.git project_name
 
-    cd project_name
-    script/generate sexy_scaffold user name:string email:string last_login:datetime
-    rake db:migrate
-    script/server
+And then later, create a project on Github (or on somewhere else), make sure that you're the collaborator of that project. (On Github, just click on edit link and adds a collaborator there.) Then issue the command to add another origin such as:
 
-Then visit [localhost:3000/users](http://localhost:3000/users).
-
+    git remote add origin git@github.com:code/project_name.git
+    
 ## Preconfigured for:
 
 * Rails 2.1
