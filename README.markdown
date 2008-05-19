@@ -4,6 +4,11 @@ So in order to create a new project, we first check out the kickstart template:
 
     git clone --o kickstart git@github.com:code/kickstart-rails.git project_name
 
+Then initialize and update Rails submodule from Github (Edge Rails)
+
+    git submodule init
+    git submodule update
+
 And then later, create a project on Github (or on somewhere else), make sure that you're the collaborator of that project. (On Github, just click on edit link and adds a collaborator there.) Then issue the command to add another origin such as:
 
     git remote add origin git@github.com:code/project_name.git
