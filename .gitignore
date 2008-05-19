@@ -2,7 +2,7 @@
 /log/*.log
 /db/*.sqlite3
 /config/database.yml
-/vendor/rails
+#/vendor/rails
 /public/stylesheets/*.css
 /public/javascripts/all.js
 .DS_Store
