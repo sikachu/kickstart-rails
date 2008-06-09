@@ -1,4 +1,4 @@
-Haml::Template::options[:format] = :html4
+#Haml::Template::options[:format] = :html4
 
 if RAILS_ENV == 'production'
   Sass::Plugin::options[:style] = :compact
